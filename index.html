@@ -1,7 +1,7 @@
 <!--
   ============================================================
-  DARCYCODE ENTERPRISE SITE — V11
-  Last updated: March 3, 2026
+  DARCYCODE ENTERPRISE SITE — V12
+  Last updated: March 4, 2026
   Version history:
     V1-V4: GPT section-by-section builds (prior sessions)
     V5: Hero rewrite + product tiers
@@ -11,6 +11,7 @@
     V9: Sterilized demos embedded (Compatibility Scorecard + Meeting Translator)
     V10: Color overhaul (warm navy + gold), product structure fixed (4 real products), stats copy rewritten
     V11: Perplexity hero ("Bridge Between Said & Meant"), stats table with HBR/KPMG/Grammarly sources, "Get Your GPS Now" CTA, Compatibility Map fix
+    V12: Replaced sample outputs with new visual dashboards (Meeting Intelligence + Compatibility Intelligence). Translation tables as hero demo elements.
   ============================================================
 
   DEPLOYMENT NOTES FOR SEBASTIAN — see SEBASTIAN/DEPLOY_INSTRUCTIONS.md
@@ -360,6 +361,101 @@ footer {
 .signal-box p { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.55; }
 .signal-box p strong { color: var(--text); }
 
+/* DASHBOARD PREVIEW CARDS */
+.dashboard-preview {
+  border: 1px solid var(--border); border-radius: 6px; overflow: hidden;
+  background: var(--white);
+}
+.dash-preview-header {
+  padding: 1.25rem 1.5rem; background: var(--bg);
+  border-bottom: 1px solid var(--border-light);
+}
+.dash-preview-overline {
+  font-size: 0.55rem; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 0.5rem;
+}
+.dash-preview-title {
+  font-size: 0.9rem; margin-bottom: 0.15rem; color: var(--text); font-weight: 600;
+}
+.dash-preview-subtitle {
+  font-size: 0.72rem; color: var(--text-tertiary);
+}
+.dash-preview-body { padding: 1.25rem 1.5rem; }
+
+.outcome-strip {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+  margin-bottom: 1.5rem; padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-light);
+}
+.outcome-item {
+  text-align: center;
+}
+.outcome-val {
+  font-size: 1.4rem; font-weight: 700; color: var(--text);
+  line-height: 1; margin-bottom: 0.25rem;
+}
+.outcome-val.green { color: #4c9b5a; }
+.outcome-val.gold { color: var(--accent); }
+.outcome-val.navy { color: var(--bg-warm); }
+.outcome-label {
+  font-size: 0.65rem; font-weight: 500; color: var(--text-tertiary);
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+.trans-table-preview { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+.trans-table-preview th {
+  font-size: 0.55rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 1px; padding: 0.7rem 0.75rem; text-align: left; color: var(--white);
+}
+.trans-table-preview th:nth-child(1) { background: var(--bg-warm); border-radius: 3px 0 0 0; }
+.trans-table-preview th:nth-child(2) { background: #5a6a7a; }
+.trans-table-preview th:nth-child(3) { background: var(--accent); border-radius: 0 3px 0 0; }
+.trans-table-preview td {
+  padding: 0.75rem; font-size: 0.73rem; line-height: 1.5;
+  border-bottom: 1px solid var(--border-light); vertical-align: top;
+}
+.trans-table-preview tr:last-child td { border-bottom: none; }
+.trans-table-preview td:nth-child(1) {
+  color: var(--text); font-weight: 500; width: 32%; background: var(--bg);
+}
+.trans-table-preview td:nth-child(2) { color: var(--text-secondary); width: 34%; }
+.trans-table-preview td:nth-child(3) {
+  color: var(--text); font-weight: 500; width: 34%; background: var(--gold-bg);
+}
+
+.profiles-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  margin: 1.5rem 0; border: 1px solid var(--border-light); border-radius: 4px;
+  overflow: hidden;
+}
+.profile-item {
+  padding: 1rem; background: var(--white);
+}
+.profile-item:first-child { border-right: 1px solid var(--border-light); background: var(--gold-bg); }
+.profile-label {
+  font-size: 0.55rem; font-weight: 600; text-transform: uppercase;
+  color: var(--text-tertiary); margin-bottom: 0.35rem; letter-spacing: 0.5px;
+}
+.profile-arch {
+  font-size: 0.82rem; font-weight: 600; color: var(--text);
+  margin-bottom: 0.25rem;
+}
+.profile-desc {
+  font-size: 0.72rem; color: var(--text-secondary); line-height: 1.5;
+}
+
+.key-finding {
+  margin-top: 1rem; padding: 1rem; background: var(--bg);
+  border-radius: 4px; border-left: 3px solid var(--accent);
+  font-size: 0.78rem; color: var(--text); line-height: 1.6;
+}
+
+.signal-badge {
+  display: inline-block; font-size: 0.65rem; font-weight: 600;
+  padding: 0.3rem 0.6rem; background: var(--bg); border-radius: 3px;
+  color: var(--text-tertiary); margin-top: 0.75rem;
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .stats-row, .metrics-list, .deliverables-grid, .process-steps, .data-grid,
@@ -371,6 +467,10 @@ footer {
   .signal-pair { grid-template-columns: 1fr; }
   .use-case { grid-template-columns: 1fr; gap: 0.25rem; }
   section { padding: 3.5rem 0; }
+  .outcome-strip, .profiles-grid { grid-template-columns: 1fr; }
+  .profiles-grid .profile-item:first-child { border-right: none; border-bottom: 1px solid var(--border-light); }
+  .trans-table-preview th:nth-child(1) { border-radius: 3px 3px 0 0; }
+  .trans-table-preview th:nth-child(3) { border-radius: 0 0 3px 3px; }
 }
 </style>
 </head>
@@ -382,7 +482,7 @@ footer {
     <a href="#products">Products</a>
     <a href="#method">Evidence</a>
     <a href="#process">Process</a>
-    <a href="#contact" class="btn btn-primary btn-sm">Get Your GPS Now</a>
+    <a href="https://cal.com/olga-berg-7oqdt1" class="btn btn-primary btn-sm">Get Your GPS Now</a>
   </div>
 </nav>
 
@@ -390,12 +490,12 @@ footer {
 <section class="hero">
   <div class="container">
     <span class="overline" style="color: var(--accent);">GPS for Communication</span>
-    <h1>DarcyCode: The Bridge Between What&rsquo;s Said and What&rsquo;s Meant.</h1>
-    <p class="hero-sub">65% of teams and deals fail on miscommunication. Get your GPS to alignment. 48 hours.</p>
-    <p style="font-size: 0.92rem; color: var(--text-on-dark-secondary); font-style: italic; margin-bottom: 2rem; max-width: 480px; line-height: 1.6;">Sentiment analysis = mood. DarcyCode = <em style="color: var(--accent); font-style: normal; font-weight: 600;">WHY</em> you&rsquo;re misaligned + <em style="color: var(--accent); font-style: normal; font-weight: 600;">WHAT</em> to fix.</p>
+    <h1>Actionable Communication Intelligence.<br><span style="color: var(--text-on-dark-secondary); font-weight: 400; font-size: 0.55em;">Not Sentiment. Not Notes.</span></h1>
+    <p style="font-size: clamp(1.5rem, 2.5vw, 1.8rem); max-width: 580px; font-weight: 600; color: var(--text-on-dark); margin-bottom: 2rem; line-height: 1.3; letter-spacing: -0.3px;">The Where, the Why, and What to Do About It.</p>
+    <p style="font-size: 0.88rem; color: var(--text-on-dark-secondary); margin-bottom: 2rem; max-width: 480px; line-height: 1.7;"><strong style="color: var(--text-on-dark);">65% of teams and deals fail on miscommunication.</strong><br>DarcyCode translates what was said into what was meant &mdash; and tells you what to do next.</p>
     <div class="hero-buttons">
-      <a href="#contact" class="btn btn-primary" style="padding: 0.7rem 2rem; font-size: 0.9rem;">Get Your GPS Now</a>
-      <a href="#products" class="btn btn-secondary">See Products</a>
+      <a href="https://cal.com/olga-berg-7oqdt1" class="btn btn-primary" style="padding: 0.7rem 2rem; font-size: 0.9rem;">Get Your GPS Now</a>
+      <a href="#demos" class="btn btn-secondary">See Demos</a>
     </div>
     <div class="hero-meta">
       Encrypted submission. NDA available. Data auto-deleted within 72 hours. Never used for model training.
@@ -407,31 +507,34 @@ footer {
 <section style="padding: 3.5rem 0; background: var(--white);">
   <div class="container">
     <h2 style="color: var(--text); text-align: center; margin-bottom: 2rem;">What Miscommunication Actually Costs You</h2>
-    <table style="width: 100%; border-collapse: collapse; margin: 0 auto; max-width: 800px; border: 1px solid var(--border);">
+    <table style="width: 100%; border-collapse: collapse; margin: 0 auto; max-width: 900px; border: 1px solid var(--border);">
       <thead>
         <tr style="background: var(--bg);">
           <th style="padding: 1rem 1.25rem; text-align: left; font-size: 0.7rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--text-tertiary); border-bottom: 2px solid var(--accent);"></th>
+          <th style="padding: 1rem 1.25rem; text-align: center; font-size: 1.4rem; font-weight: 700; color: var(--text); border-bottom: 2px solid var(--accent);">50% C-Suite Hires</th>
           <th style="padding: 1rem 1.25rem; text-align: center; font-size: 1.4rem; font-weight: 700; color: var(--text); border-bottom: 2px solid var(--accent);">65% Startups</th>
           <th style="padding: 1rem 1.25rem; text-align: center; font-size: 1.4rem; font-weight: 700; color: var(--text); border-bottom: 2px solid var(--accent);">70&ndash;90% M&amp;A</th>
-          <th style="padding: 1rem 1.25rem; text-align: center; font-size: 1.4rem; font-weight: 700; color: var(--text); border-bottom: 2px solid var(--accent);">$37K/Employee/Yr</th>
+          <th style="padding: 1rem 1.25rem; text-align: center; font-size: 1.4rem; font-weight: 700; color: var(--text); border-bottom: 2px solid var(--accent);">$3.7&ndash;5.7M</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td style="padding: 0.85rem 1.25rem; font-size: 0.78rem; font-weight: 600; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid var(--border-light);">Impact</td>
-          <td style="padding: 0.85rem 1.25rem; text-align: center; font-size: 0.92rem; color: var(--text); line-height: 1.5; border-bottom: 1px solid var(--border-light);">Co-founder conflict</td>
-          <td style="padding: 0.85rem 1.25rem; text-align: center; font-size: 0.92rem; color: var(--text); line-height: 1.5; border-bottom: 1px solid var(--border-light);">Culture clash</td>
-          <td style="padding: 0.85rem 1.25rem; text-align: center; font-size: 0.92rem; color: var(--text); line-height: 1.5; border-bottom: 1px solid var(--border-light);">Miscommunication loss</td>
+          <td style="padding: 0.85rem 1.25rem; text-align: center; font-size: 0.88rem; color: var(--text); line-height: 1.5; border-bottom: 1px solid var(--border-light);">Fail within 18 months. <strong>89% communication misfit</strong>, not skill.</td>
+          <td style="padding: 0.85rem 1.25rem; text-align: center; font-size: 0.88rem; color: var(--text); line-height: 1.5; border-bottom: 1px solid var(--border-light);">Co-founder conflict</td>
+          <td style="padding: 0.85rem 1.25rem; text-align: center; font-size: 0.88rem; color: var(--text); line-height: 1.5; border-bottom: 1px solid var(--border-light);">Culture clash</td>
+          <td style="padding: 0.85rem 1.25rem; text-align: center; font-size: 0.88rem; color: var(--text); line-height: 1.5; border-bottom: 1px solid var(--border-light);">Cost per failed executive hire (3&ndash;5x salary)</td>
         </tr>
         <tr>
           <td style="padding: 0.85rem 1.25rem; font-size: 0.78rem; font-weight: 600; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.5px;">Source</td>
+          <td style="padding: 0.85rem 1.25rem; text-align: center; font-size: 0.82rem;"><a href="https://hbr.org/2017/05/why-do-so-many-ceos-fail" target="_blank" style="color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent);">Harvard Business Review</a></td>
           <td style="padding: 0.85rem 1.25rem; text-align: center; font-size: 0.82rem;"><a href="https://hbr.org/2022/12/cofounders-need-to-learn-how-to-productively-disagree" target="_blank" style="color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent);">Harvard Business Review</a></td>
           <td style="padding: 0.85rem 1.25rem; text-align: center; font-size: 0.82rem;"><a href="https://kpmg.com/ca/en/insights/2025/04/mergers-fail-when-cultures-clash.html" target="_blank" style="color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent);">KPMG</a></td>
-          <td style="padding: 0.85rem 1.25rem; text-align: center; font-size: 0.82rem;"><a href="https://www.hrvisionevent.com/content-hub/the-signs-and-costs-of-poor-communication-in-the-workplace/" target="_blank" style="color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent);">Grammarly Research</a></td>
+          <td style="padding: 0.85rem 1.25rem; text-align: center; font-size: 0.82rem;"><a href="https://www.shrm.org/topics-tools/news/talent-acquisition/cost-bad-hire" target="_blank" style="color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent);">SHRM</a></td>
         </tr>
       </tbody>
     </table>
-    <p style="text-align: center; font-size: 0.95rem; color: var(--text); font-weight: 500; max-width: 500px; margin: 2rem auto 0;"><span style="color: var(--accent);">Darcy maps the gaps</span> &mdash; and delivers the playbooks to close them.</p>
+    <p style="text-align: center; font-size: 0.95rem; color: var(--text); font-weight: 500; max-width: 560px; margin: 2rem auto 0;">86% of executives blame workplace failures on poor communication. <span style="color: var(--accent);">Darcy maps exactly where it breaks</span> &mdash; and delivers the playbook to fix it.</p>
   </div>
 </section>
 
@@ -439,7 +542,7 @@ footer {
 <section class="section-border" style="background: var(--bg); padding: 3.5rem 0;">
   <div class="container">
     <span class="overline">Who It&rsquo;s For</span>
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1rem;">
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 1rem;">
       <div>
         <h3 style="margin-bottom: 0.5rem;">M&amp;A / PE Firms</h3>
         <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">Pre- and post-deal leadership team risk. Communication compatibility before you sign. Integration playbooks after you close.</p>
@@ -450,7 +553,11 @@ footer {
       </div>
       <div>
         <h3 style="margin-bottom: 0.5rem;">Executive Teams</h3>
-        <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">Alignment diagnostics. Friction identification. Repair playbooks calibrated to each relationship. Turn relationships into operating manuals.</p>
+        <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">Your new hire said all the right things. Six months later, the team is slower and nobody can explain why. Darcy maps the gap before you sign.</p>
+      </div>
+      <div>
+        <h3 style="margin-bottom: 0.5rem;">Global &amp; International Teams</h3>
+        <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">60% of global negotiations fail on cultural miscommunication &mdash; not product or price. Darcy maps how each culture signals agreement, discomfort, and trust differently.</p>
       </div>
     </div>
   </div>
@@ -460,289 +567,186 @@ footer {
 <section class="section-border" id="products">
   <div class="container">
     <span class="overline">Products</span>
-    <h2>Four deliverables. All from real conversations.</h2>
+    <h2>Five products. All from real conversations.</h2>
 
-    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2rem;">
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem;">
       <div class="del-card">
         <div class="del-num">01</div>
-        <h3>Compatibility Map</h3>
-        <p>Full behavioral map for any two-person relationship. Per-person fingerprint. Friction points. Repair playbook. How each person processes, communicates, builds trust, and recovers from conflict.</p>
-        <p style="margin-top: 0.75rem; font-size: 0.75rem; color: var(--text-tertiary);">Co-founders &middot; Leadership pairs &middot; 48-hour delivery</p>
+        <h3>Interview Analysis</h3>
+        <p>Pre-hire communication intelligence. How a candidate actually processes, decides, and handles pressure &mdash; extracted from the interview itself. Not what they said. How they think.</p>
+        <p style="margin-top: 0.75rem; font-size: 0.75rem; color: var(--text-tertiary);">Hiring &middot; Onboarding &middot; Per candidate</p>
       </div>
       <div class="del-card">
         <div class="del-num">02</div>
-        <h3>Two-Way Meeting Translator</h3>
-        <p>Single conversation between two people. What was said, what was heard, what was meant. Where alignment broke. Where repair was missed. Next-step script included.</p>
-        <p style="margin-top: 0.75rem; font-size: 0.75rem; color: var(--text-tertiary);">Per meeting &middot; Per relationship</p>
+        <h3>Meeting Translator</h3>
+        <p>Any meeting, 2&ndash;6+ participants. What was said, what was heard, what was meant. Per-person engagement temperature. Where alignment broke. Next-step scripts included.</p>
+        <p style="margin-top: 0.75rem; font-size: 0.75rem; color: var(--text-tertiary);">Per meeting &middot; Board &middot; Partnership calls</p>
       </div>
       <div class="del-card">
         <div class="del-num">03</div>
-        <h3>Multi-Way Meeting Translator</h3>
-        <p>Group meetings with 3&ndash;6+ participants. Per-person engagement temperature. Alignment vs. surface agreement. Who was heard, who wasn&rsquo;t, and where the group diverged without noticing.</p>
-        <p style="margin-top: 0.75rem; font-size: 0.75rem; color: var(--text-tertiary);">Board meetings &middot; Partnership calls &middot; Team discussions</p>
+        <h3>Compatibility Map</h3>
+        <p>Full behavioral map for any two-person dynamic. Per-person fingerprint. Friction points. How each person builds trust and recovers from conflict.</p>
+        <p style="margin-top: 0.75rem; font-size: 0.75rem; color: var(--text-tertiary);">Co-founders &middot; Leadership pairs &middot; 48-hour delivery</p>
       </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1rem;">
       <div class="del-card">
         <div class="del-num">04</div>
         <h3>Communication Maps</h3>
-        <p>Ongoing relationship intelligence. Patterns tracked over multiple conversations. Drift detection. Repair velocity. How the dynamic is evolving &mdash; early warning before friction becomes conflict.</p>
-        <p style="margin-top: 0.75rem; font-size: 0.75rem; color: var(--text-tertiary);">Optional &middot; Ongoing &middot; Portfolio or team-level</p>
+        <p>A personal translation guide for every person on your team. How they process. How they decide. What their silence means. What their questions actually signal. Every company needs one for every employee.</p>
+        <p style="margin-top: 0.75rem; font-size: 0.75rem; color: var(--text-tertiary);">Per-person &middot; Ongoing &middot; Team-wide or individual</p>
+      </div>
+      <div class="del-card" style="border: 2px solid var(--accent); position: relative;">
+        <div class="del-num" style="background: var(--accent); color: white;">05</div>
+        <div style="position: absolute; top: -0.5rem; right: 1rem; background: var(--accent); color: white; font-size: 0.6rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 2px; text-transform: uppercase; letter-spacing: 1px;">Premium</div>
+        <h3>Full Team Architecture</h3>
+        <p>Communication Maps + Meeting Translator + Compatibility Maps for your entire leadership team. Ongoing monitoring. Drift detection. Early warning before friction becomes conflict.</p>
+        <p style="margin-top: 0.75rem; font-size: 0.75rem; color: var(--text-tertiary);">Enterprise &middot; Retainer &middot; Custom pricing</p>
       </div>
     </div>
 
     <div style="text-align: center; margin-top: 2rem;">
-      <a href="#contact" class="btn btn-primary">Get Your Free Sample Report</a>
+      <a href="https://cal.com/olga-berg-7oqdt1" class="btn btn-primary">Get Your Free Sample Report</a>
     </div>
   </div>
 </section>
-
-<!-- REAL CONVERSATION EXTRACTS -->
-<section class="section-border" id="method">
-  <div class="container">
-    <span class="overline">Real Conversation Extracts</span>
-    <p class="subdeck" style="margin-bottom: 2rem;">Darcy does not summarize meetings. It reveals what participants meant &mdash; and whether others understood it.</p>
-    <p style="font-size: 0.75rem; color: var(--text-tertiary); margin-bottom: 2rem;">Confidential cases. Redacted. Generated by Darcy Communication Translator.</p>
-
-    <!-- CASE 1 -->
-    <div class="case-card">
-      <div class="case-header">
-        <div class="case-label">Case 1 &mdash; Advisor Introduction Gone Wrong</div>
-        <h3>A 25-minute call that ended a relationship.</h3>
-        <p class="case-context">Advisor connects two professionals. Technical review. Ends abruptly. Both sides leave frustrated.</p>
-      </div>
-      <div class="case-body">
-        <div class="case-finding">Core Finding: They weren&rsquo;t disagreeing. They were using different frameworks without realizing it.</div>
-
-        <table class="sample-table">
-          <thead>
-            <tr>
-              <th>What Was Said</th>
-              <th>What Was Heard</th>
-              <th>What Was Meant</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>&ldquo;That level of accuracy isn&rsquo;t realistic.&rdquo;</td>
-              <td>&ldquo;He thinks my work is fake.&rdquo;</td>
-              <td>&ldquo;I&rsquo;m applying a different standard. I&rsquo;m not attacking the work.&rdquo;</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="detected-patterns">
-          <div class="pattern-item"><strong>Different evaluation criteria</strong> &mdash; neither side stated their frame</div>
-          <div class="pattern-item"><strong>Emotional escalation</strong> &mdash; engagement dropped from collaborative to defensive in three exchanges</div>
-          <div class="pattern-item"><strong>Missed repair</strong> &mdash; one participant tried to de-escalate. It wasn&rsquo;t picked up.</div>
-        </div>
-
-        <div class="case-outcome">
-          Three competent people. No actual disagreement. The relationship ended because nobody named the frame mismatch.<br><br>
-          <em>Darcy identified the exact exchange where it broke &mdash; and the repair attempt that was missed.</em>
-        </div>
-      </div>
-    </div>
-
-    <!-- CASE 2 -->
-    <div class="case-card">
-      <div class="case-header">
-        <div class="case-label">Case 2 &mdash; Investor Meeting</div>
-        <h3>The question that was asked three times.</h3>
-        <p class="case-context">Discovery call. 4 participants. Pre-investment evaluation.</p>
-      </div>
-      <div class="case-body">
-        <div class="signal-pair">
-          <div class="signal-box">
-            <div class="signal-label">What happened</div>
-            <p>The evaluator asked about revenue model <strong>three times</strong> &mdash; each time with different wording.</p>
-            <p><strong>Why it matters:</strong> When someone asks the same question three times, your previous answers didn&rsquo;t land.</p>
-          </div>
-          <div class="signal-box">
-            <div class="signal-label">What else Darcy caught</div>
-            <p>Founder opened with <strong>&ldquo;Not really&rdquo;</strong> about traction &mdash; then immediately listed examples of traction.</p>
-            <p><strong>Why it matters:</strong> The first words set the anchor. The correction came too late to overwrite it.</p>
-          </div>
-        </div>
-
-        <div class="case-outcome">
-          The meeting went well on the surface. Both sides were polite. But the evaluator left with two unanswered concerns &mdash; neither of which was ever stated directly.<br><br>
-          <em>Darcy distinguishes genuine alignment from polite agreement.</em>
-        </div>
-      </div>
-    </div>
-
-    <!-- CASE 3 -->
-    <div class="case-card">
-      <div class="case-header">
-        <div class="case-label">Case 3 &mdash; Partnership Discussion</div>
-        <h3>Both sides said &ldquo;let&rsquo;s move forward.&rdquo; They meant different things.</h3>
-        <p class="case-context">6 participants. ~45 minutes. Potential integration between two companies.</p>
-      </div>
-      <div class="case-body">
-        <div class="signal-pair">
-          <div class="signal-box">
-            <div class="signal-label">What both sides said</div>
-            <p><strong>&ldquo;Testing is the next step.&rdquo;</strong></p>
-          </div>
-          <div class="signal-box">
-            <div class="signal-label">What each side meant</div>
-            <p>One side: ready to start tomorrow.<br>Other side: needs legal review, internal approval, 6&ndash;8 weeks minimum.</p>
-            <p><strong>Neither stated their timeline.</strong></p>
-          </div>
-        </div>
-
-        <div class="signal-pair">
-          <div class="signal-box">
-            <div class="signal-label">Same word, different meaning</div>
-            <p>Both sides used <strong>&ldquo;fraud detection&rdquo;</strong> five times in the meeting.</p>
-          </div>
-          <div class="signal-box">
-            <div class="signal-label">What Darcy found</div>
-            <p>One side meant behavioral patterns. The other meant document verification.</p>
-            <p><strong>They never defined the term. They assumed agreement.</strong></p>
-          </div>
-        </div>
-
-        <div class="case-outcome">
-          The meeting ended with a handshake. The partnership stalled three weeks later when the misalignment surfaced.<br><br>
-          <em>Darcy flags assumed agreement &mdash; where both sides think they&rsquo;re aligned but aren&rsquo;t.</em>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- WHY NOT JUST SENTIMENT ANALYSIS? -->
-<section class="section-border" id="deliverables">
-  <div class="container">
-    <span class="overline">The Difference</span>
-    <h2>Why not just sentiment analysis?</h2>
-    <p class="subdeck" style="margin-bottom: 2rem;">Sentiment tools measure tone. DarcyCode maps the 33 behavioral signals underneath it &mdash; why the miscommunication happened, where it&rsquo;s heading, and how to redirect it.</p>
-
-    <div style="border: 1px solid var(--border); border-radius: 6px; overflow: hidden;">
-      <table style="width: 100%; border-collapse: collapse;">
-        <thead>
-          <tr>
-            <th style="text-align: left; font-size: 0.6rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--text-tertiary); padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); background: var(--bg); width: 45%;">Sentiment Analysis</th>
-            <th style="text-align: left; font-size: 0.6rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--text); padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); width: 55%;">DarcyCode</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="padding: 1rem 1.5rem; font-size: 0.82rem; color: var(--text-tertiary); line-height: 1.6; border-bottom: 1px solid var(--border-light); background: var(--bg);">&ldquo;Call was 65% positive.&rdquo;</td>
-            <td style="padding: 1rem 1.5rem; font-size: 0.82rem; color: var(--text); line-height: 1.6; border-bottom: 1px solid var(--border-light);">&ldquo;Investor asked about revenue 3x &mdash; your &lsquo;Not really&rsquo; answer didn&rsquo;t land. Here&rsquo;s the exact exchange where credibility dropped.&rdquo;</td>
-          </tr>
-          <tr>
-            <td style="padding: 1rem 1.5rem; font-size: 0.82rem; color: var(--text-tertiary); line-height: 1.6; border-bottom: 1px solid var(--border-light); background: var(--bg);">&ldquo;Speaker sounded frustrated.&rdquo;</td>
-            <td style="padding: 1rem 1.5rem; font-size: 0.82rem; color: var(--text); line-height: 1.6; border-bottom: 1px solid var(--border-light);">&ldquo;Frame mismatch: you said &lsquo;fraud detection&rsquo; meaning behavioral patterns. They heard document verification. Neither defined the term.&rdquo;</td>
-          </tr>
-          <tr>
-            <td style="padding: 1rem 1.5rem; font-size: 0.82rem; color: var(--text-tertiary); line-height: 1.6; background: var(--bg);">No action steps.</td>
-            <td style="padding: 1rem 1.5rem; font-size: 0.82rem; color: var(--text); line-height: 1.6;">&ldquo;Next call: lead with ARR example, then qualify their definition before presenting. Repair script included.&rdquo;</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <p style="text-align: center; margin-top: 1.5rem; font-size: 0.88rem; color: var(--text); font-weight: 500;">DarcyCode turns invisible friction into fixable playbooks.</p>
-  </div>
-</section>
-
-<!-- SAMPLE OUTPUTS — STERILIZED FROM REAL DARCY REPORTS -->
-<section class="section-border">
+<!-- SAMPLE OUTPUTS — NEW DASHBOARD PREVIEWS -->
+<section class="section-border" id="demos">
   <div class="container">
     <span class="overline">What You Receive</span>
-    <h2>Real outputs. Not mockups.</h2>
+    <h2>Real outputs.</h2>
     <p class="subdeck" style="margin-bottom: 2rem;">These are sterilized excerpts from actual DarcyCode reports. Names and details changed. Structure and depth are exactly what clients receive.</p>
 
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem;">
 
-      <!-- COMPATIBILITY SCORECARD (sterilized from real output) -->
-      <div style="border: 1px solid var(--border); border-radius: 6px; overflow: hidden;">
-        <div style="padding: 1.25rem 1.5rem; background: var(--bg); border-bottom: 1px solid var(--border-light);">
-          <div style="font-size: 0.55rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 0.5rem;">Sample &mdash; Compatibility Report</div>
-          <h3 style="font-size: 0.9rem; margin-bottom: 0.15rem;">Co-Founder Operating Manual</h3>
-          <p style="font-size: 0.72rem; color: var(--text-tertiary);">Founder A &times; Founder B &mdash; Startup Partnership</p>
+      <!-- MEETING INTELLIGENCE CARD -->
+      <div class="dashboard-preview">
+        <div class="dash-preview-header">
+          <div class="dash-preview-overline">Sample &mdash; Meeting Intelligence</div>
+          <div class="dash-preview-title">Partnership Discovery Call</div>
+          <div class="dash-preview-subtitle">6 participants &middot; 45 minutes &middot; 372 turns</div>
         </div>
-        <div style="padding: 1.25rem 1.5rem;">
-          <div style="font-size: 0.6rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 0.75rem;">Behavioral Fingerprint &mdash; Founder B</div>
-          <!-- Mini bars showing behavioral dimensions -->
-          <div style="margin-bottom: 0.6rem;">
-            <div style="display: flex; justify-content: space-between; font-size: 0.72rem; margin-bottom: 0.2rem;"><span style="color: var(--text);">Processing</span><span style="color: var(--text-tertiary);">Linear &rarr; Sequential</span></div>
-            <div style="height: 4px; background: var(--border-light); border-radius: 2px;"><div style="height: 4px; width: 30%; background: var(--text); border-radius: 2px;"></div></div>
-          </div>
-          <div style="margin-bottom: 0.6rem;">
-            <div style="display: flex; justify-content: space-between; font-size: 0.72rem; margin-bottom: 0.2rem;"><span style="color: var(--text);">Communication</span><span style="color: var(--text-tertiary);">Literal &rarr; Direct</span></div>
-            <div style="height: 4px; background: var(--border-light); border-radius: 2px;"><div style="height: 4px; width: 85%; background: var(--text); border-radius: 2px;"></div></div>
-          </div>
-          <div style="margin-bottom: 0.6rem;">
-            <div style="display: flex; justify-content: space-between; font-size: 0.72rem; margin-bottom: 0.2rem;"><span style="color: var(--text);">Trust Driver</span><span style="color: var(--text-tertiary);">Results &rarr; Visible momentum</span></div>
-            <div style="height: 4px; background: var(--border-light); border-radius: 2px;"><div style="height: 4px; width: 90%; background: var(--text); border-radius: 2px;"></div></div>
-          </div>
-          <div style="margin-bottom: 0.6rem;">
-            <div style="display: flex; justify-content: space-between; font-size: 0.72rem; margin-bottom: 0.2rem;"><span style="color: var(--text);">Repair Speed</span><span style="color: var(--text-tertiary);">Fast &rarr; Does not hold ruptures</span></div>
-            <div style="height: 4px; background: var(--border-light); border-radius: 2px;"><div style="height: 4px; width: 92%; background: var(--text); border-radius: 2px;"></div></div>
+        <div class="dash-preview-body">
+          <div class="outcome-strip">
+            <div class="outcome-item">
+              <div class="outcome-val green">8/10</div>
+              <div class="outcome-label">Peak engagement</div>
+            </div>
+            <div class="outcome-item">
+              <div class="outcome-val gold">3</div>
+              <div class="outcome-label">Gaps to address</div>
+            </div>
+            <div class="outcome-item">
+              <div class="outcome-val navy">1</div>
+              <div class="outcome-label">Co-creation moment</div>
+            </div>
           </div>
 
-          <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--border-light);">
-            <div style="font-size: 0.6rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 0.5rem;">Fast Repair Protocol</div>
-            <p style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.55;">When something goes wrong: Name it directly. One warm word before the direct statement. Content stays the same &mdash; landing changes completely.</p>
+          <div style="margin-bottom: 1rem; font-size: 0.6rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-tertiary);">Translation Table</div>
+          <table class="trans-table-preview">
+            <thead>
+              <tr>
+                <th>What was said</th>
+                <th>What DarcyCode detected</th>
+                <th>What it actually means</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>&ldquo;We&rsquo;re thinking about two different tracks.&rdquo;</td>
+                <td>These are future directions, not current capabilities.</td>
+                <td>We&rsquo;re exploring where you might fit into products we haven&rsquo;t built yet.</td>
+              </tr>
+              <tr>
+                <td>&ldquo;We&rsquo;ll have to go through red tape.&rdquo;</td>
+                <td>Data access requires multiple approvals. Timeline is weeks to months.</td>
+                <td>We want to test this but the path to real data is genuinely complicated.</td>
+              </tr>
+              <tr>
+                <td>&ldquo;I don&rsquo;t think adding voice will help.&rdquo;</td>
+                <td>Honest pushback. This person filters for practical value.</td>
+                <td>Don&rsquo;t oversell. Show me where this works for what we deal with today.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="key-finding">
+            Standard notes capture what was said. DarcyCode captures what was meant.
           </div>
 
-          <div style="margin-top: 0.75rem; padding: 0.6rem 0.85rem; background: var(--bg); border-radius: 4px; border: 1px solid var(--border-light);">
-            <p style="font-size: 0.72rem; color: var(--text); line-height: 1.5;"><strong>Key risk:</strong> Under pressure, reads emotional weight into statements that contain none. A direct operational comment can land as personal criticism.</p>
-          </div>
+          <div class="signal-badge">Full behavioral analysis &middot; 6 participants &middot; 372 turns</div>
         </div>
       </div>
 
-      <!-- MEETING TRANSLATOR (sterilized from Beltic enterprise output) -->
-      <div style="border: 1px solid var(--border); border-radius: 6px; overflow: hidden;">
-        <div style="padding: 1.25rem 1.5rem; background: var(--bg); border-bottom: 1px solid var(--border-light);">
-          <div style="font-size: 0.55rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 0.5rem;">Sample &mdash; Meeting Translator</div>
-          <h3 style="font-size: 0.9rem; margin-bottom: 0.15rem;">Partnership Discovery Call</h3>
-          <p style="font-size: 0.72rem; color: var(--text-tertiary);">4 participants &middot; 38 minutes &middot; Product integration discussion</p>
+      <!-- COMPATIBILITY INTELLIGENCE CARD -->
+      <div class="dashboard-preview">
+        <div class="dash-preview-header">
+          <div class="dash-preview-overline">Sample &mdash; Compatibility Intelligence</div>
+          <div class="dash-preview-title">Partnership Compatibility Map</div>
+          <div class="dash-preview-subtitle">Two participants &middot; 3-month data window</div>
         </div>
-        <div style="padding: 1.25rem 1.5rem;">
-          <div style="font-size: 0.6rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 0.75rem;">Alignment &amp; Misalignment Map</div>
-
-          <div style="padding: 0.6rem 0; border-bottom: 1px solid var(--border-light);">
-            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
-              <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #2d8a4e;"></span>
-              <span style="font-size: 0.68rem; font-weight: 600; color: #2d8a4e; text-transform: uppercase; letter-spacing: 0.5px;">Genuine Alignment</span>
+        <div class="dash-preview-body">
+          <div class="outcome-strip">
+            <div class="outcome-item">
+              <div class="outcome-val gold">7.5</div>
+              <div class="outcome-label">Professional fit</div>
             </div>
-            <p style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.5;">Both sides independently proposed API-first architecture. Unprompted convergence = real alignment.</p>
+            <div class="outcome-item">
+              <div class="outcome-val" style="color: #7a6b8a;">6.0</div>
+              <div class="outcome-label">Personal fit</div>
+            </div>
+            <div class="outcome-item">
+              <div class="outcome-val navy">High</div>
+              <div class="outcome-label">Repair capacity</div>
+            </div>
           </div>
 
-          <div style="padding: 0.6rem 0; border-bottom: 1px solid var(--border-light);">
-            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
-              <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #c4432b;"></span>
-              <span style="font-size: 0.68rem; font-weight: 600; color: #c4432b; text-transform: uppercase; letter-spacing: 0.5px;">Surface Alignment</span>
+          <div class="profiles-grid">
+            <div class="profile-item">
+              <div class="profile-label">Person A</div>
+              <div class="profile-arch">Visionary Builder</div>
+              <div class="profile-desc">Multi-threaded processor. Creates connection through shared vision. Needs depth and meaning.</div>
             </div>
-            <p style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.5;">Both said &ldquo;testing next week.&rdquo; Side A meant internal sandbox. Side B meant live client data. Neither specified scope.</p>
+            <div class="profile-item">
+              <div class="profile-label">Person B</div>
+              <div class="profile-arch">Action Performer</div>
+              <div class="profile-desc">Single-threaded processor. Commits through action before comprehension. Needs recognition and clear roles.</div>
+            </div>
           </div>
 
-          <div style="margin-top: 0.75rem;">
-            <div style="font-size: 0.6rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 0.5rem;">Engagement Temperature</div>
-            <!-- Simple temperature visualization -->
-            <div style="display: flex; gap: 2px; align-items: flex-end; height: 40px; margin-bottom: 0.5rem;">
-              <div style="flex: 1; background: var(--border-light); border-radius: 1px; height: 45%;"></div>
-              <div style="flex: 1; background: var(--border); border-radius: 1px; height: 55%;"></div>
-              <div style="flex: 1; background: var(--text-tertiary); border-radius: 1px; height: 70%;"></div>
-              <div style="flex: 1; background: var(--text-tertiary); border-radius: 1px; height: 85%;"></div>
-              <div style="flex: 1; background: var(--text); border-radius: 1px; height: 100%;"></div>
-              <div style="flex: 1; background: var(--text); border-radius: 1px; height: 95%;"></div>
-              <div style="flex: 1; background: var(--text-tertiary); border-radius: 1px; height: 60%;"></div>
-              <div style="flex: 1; background: var(--border); border-radius: 1px; height: 40%;"></div>
-            </div>
-            <div style="display: flex; justify-content: space-between; font-size: 0.6rem; color: var(--text-tertiary);">
-              <span>Opening</span><span>Technical deep-dive</span><span>Wrap-up</span>
-            </div>
-            <p style="font-size: 0.72rem; color: var(--text-secondary); margin-top: 0.5rem; line-height: 1.5;">Peak engagement during technical Q&amp;A (minute 18&ndash;27). Drop after pricing discussed &mdash; Side B shifted from questions to statements. Signal: decision already forming internally.</p>
+          <div style="margin: 1rem 0 0.5rem 0; font-size: 0.6rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-tertiary);">Communication Translation &mdash; Recipe for Repair</div>
+          <table class="trans-table-preview">
+            <thead>
+              <tr>
+                <th>What was said</th>
+                <th>What the other heard</th>
+                <th>Say this instead</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span style="font-size: 0.6rem; font-weight: 600; background: var(--gold-bg); color: var(--accent); padding: 2px 5px; border-radius: 2px; text-transform: uppercase; letter-spacing: 0.5px;">B</span> &ldquo;I&rsquo;ll need to think about that.&rdquo;</td>
+                <td>&ldquo;He&rsquo;s stalling. Probably a no.&rdquo;</td>
+                <td>&ldquo;Take your time &mdash; what information would help you decide?&rdquo;</td>
+              </tr>
+              <tr>
+                <td><span style="font-size: 0.6rem; font-weight: 600; background: #f0f2f5; color: var(--bg-warm); padding: 2px 5px; border-radius: 2px; text-transform: uppercase; letter-spacing: 0.5px;">A</span> &ldquo;We covered a lot of ground today.&rdquo;</td>
+                <td>&ldquo;She&rsquo;s wrapping up. Good meeting.&rdquo;</td>
+                <td>&ldquo;Which thread should we pull first?&rdquo;</td>
+              </tr>
+              <tr>
+                <td><span style="font-size: 0.6rem; font-weight: 600; background: var(--gold-bg); color: var(--accent); padding: 2px 5px; border-radius: 2px; text-transform: uppercase; letter-spacing: 0.5px;">B</span> <em>[silence after a detailed proposal]</em></td>
+                <td>&ldquo;He&rsquo;s not interested.&rdquo;</td>
+                <td>&ldquo;What part are you modelling in your head right now?&rdquo;</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="key-finding">
+            High-value partnership with a manageable communication gap.
           </div>
 
-          <div style="margin-top: 0.75rem; padding: 0.6rem 0.85rem; background: var(--bg); border-radius: 4px; border: 1px solid var(--border-light);">
-            <p style="font-size: 0.72rem; color: var(--text); line-height: 1.5;"><strong>Next step script:</strong> &ldquo;Before we scope the pilot &mdash; when you say testing, are you thinking sandbox or live data?&rdquo;</p>
-          </div>
+          <div class="signal-badge">Full behavioral analysis &middot; 4 domain scoring</div>
         </div>
       </div>
 
@@ -754,47 +758,182 @@ footer {
     </div>
   </div>
 </section>
+<!-- THE TRANSLATOR — CORE DEMO -->
+<section class="section-border" id="method">
+  <div class="container">
+    <span class="overline">The Translator</span>
+    <h2 style="margin-bottom: 0.5rem;">What they said. What others heard. What they meant. What to do.</h2>
+    <p class="subdeck" style="margin-bottom: 0.5rem;">Every miscommunication has a forensic structure. Darcy maps it.</p>
+    <p style="font-size: 0.75rem; color: var(--text-tertiary); margin-bottom: 2rem;">Anonymized extract. Generated by Darcy Communication Translator.</p>
+
+    <!-- TRANSLATION TABLE — ENTERPRISE DISCOVERY CALL (BELTIC) -->
+    <div class="case-card">
+      <div class="case-header">
+        <div class="case-label">Enterprise Discovery Call &middot; 6 Participants &middot; 45 Minutes</div>
+        <h3>Everyone said yes. But they meant four different things.</h3>
+        <p class="case-context">A partnership discovery call between two companies. Six people on the call. All polite. All engaged. Standard meeting notes would say &ldquo;great alignment, next steps pending.&rdquo; Darcy found four critical gaps hiding in plain sight.</p>
+      </div>
+      <div class="case-body">
+
+        <div style="margin-bottom: 1rem; font-size: 0.65rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-tertiary);">Translation Table</div>
+        <table class="trans-table-preview" style="margin-bottom: 1.5rem;">
+          <thead>
+            <tr>
+              <th>What was said</th>
+              <th>What Darcy detected</th>
+              <th>What it actually meant</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>&ldquo;We&rsquo;ve been thinking about two different tracks &mdash; conversational AI onboarding and voice-assisted verification.&rdquo;</td>
+              <td>These are future directions, not current capabilities. This is a roadmap conversation, not an integration conversation.</td>
+              <td>We&rsquo;re exploring where you might fit into products we haven&rsquo;t built yet. This is early-stage, not a procurement decision.</td>
+            </tr>
+            <tr>
+              <td>&ldquo;We&rsquo;ll have to go through a little bit of red tape. It&rsquo;s not instant because they&rsquo;re a big customer.&rdquo;</td>
+              <td>Data access requires multiple internal approvals. Timeline is weeks to months, not days. This is a real constraint, not a stall.</td>
+              <td>We want to test this but the path to getting real data is genuinely complicated by enterprise customer relationships and PII requirements.</td>
+            </tr>
+            <tr>
+              <td>&ldquo;What would work for us best is if we can get access to the API and see what else we can extract.&rdquo;</td>
+              <td>This is a hands-on evaluation request. The technical team wants to experiment independently, not receive demos.</td>
+              <td>We&rsquo;re serious enough to invest engineering time. Give us the tool and let us find the value ourselves.</td>
+            </tr>
+            <tr>
+              <td>&ldquo;To be honest, I don&rsquo;t think adding voice to that is going to help. The majority of the bottleneck still lies on fraudulent documents.&rdquo;</td>
+              <td>Honest pushback. This participant is filtering for practical value, not being polite. Their primary pain point is document fraud, not behavioral analysis in real-time.</td>
+              <td>Don&rsquo;t oversell. Show me where this works for what we actually deal with today, not a hypothetical future product.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style="margin-bottom: 1rem; font-size: 0.65rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-tertiary);">What Darcy Caught That Notes Missed</div>
+        <div class="signal-pair" style="margin-bottom: 1rem;">
+          <div class="signal-box">
+            <div class="signal-label">Appeared: Strong Alignment on Voice Integration</div>
+            <p>Everyone nodded. The conversation moved forward. <strong>Reality:</strong> One participant openly pushed back, and their objection was the most valuable signal in the call &mdash; an honest filter for what actually matters to this team today.</p>
+          </div>
+          <div class="signal-box">
+            <div class="signal-label">Appeared: Ready to Start Testing</div>
+            <p>They asked for API access. Sounds like urgency. <strong>Reality:</strong> Data access requires weeks of internal approvals and enterprise-client PII clearance. The enthusiasm is real. The timeline is not what it sounds like.</p>
+          </div>
+        </div>
+
+        <div class="case-outcome">
+          Six professionals in a 45-minute call. All engaged. All polite. All saying different things with the same words. <strong>Standard notes: &ldquo;Great call. Strong interest. Follow up next week.&rdquo;</strong><br><br>
+          <em>Darcy: Four specific gaps. Two misread signals. One honest objection that was the most important buying signal in the room &mdash; because when they kept asking about limitations, they were already modelling the implementation.</em>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY NOT JUST SENTIMENT ANALYSIS? -->
+<section class="section-border" id="deliverables">
+  <div class="container">
+    <span class="overline">The Difference</span>
+    <h2>DarcyCode = conversation map + resolution manual.</h2>
+
+    <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; max-width: 700px; margin-bottom: 1rem;"><strong style="color: var(--text);">Sentiment analysis = mood thermometer.</strong> It looks at words, tone, maybe emojis and says: &ldquo;This message is positive / negative / neutral,&rdquo; or &ldquo;Speaker sounds angry / happy / sad.&rdquo; It does not understand what people were trying to achieve, where they misunderstood each other, or how to fix it.</p>
+
+    <p style="font-size: 0.88rem; color: var(--text); line-height: 1.7; max-width: 700px; margin-bottom: 0.75rem; font-weight: 500;">DarcyCode looks at the whole interaction and asks:</p>
+    <div style="max-width: 700px; margin-bottom: 1.25rem; padding-left: 1rem; border-left: 2px solid var(--accent);">
+      <p style="font-size: 0.85rem; color: var(--text); line-height: 1.8; margin-bottom: 0;">What did each person actually need from this conversation?<br>What did they actually hear versus what was meant?<br>At which exact moments did &ldquo;said &ne; heard,&rdquo; and what pattern caused that?</p>
+    </div>
+
+    <p style="font-size: 0.88rem; color: var(--text); line-height: 1.7; max-width: 700px; margin-bottom: 0.75rem; font-weight: 500;">Then DarcyCode goes one step further and answers <strong>&ldquo;what to do now&rdquo;</strong>:</p>
+    <div style="max-width: 700px; margin-bottom: 1.5rem; padding-left: 1rem; border-left: 2px solid var(--accent);">
+      <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 0;">&ldquo;When they ask the same question 3 times, your answer isn&rsquo;t landing. Next time, give one concrete example instead of repeating the abstract explanation.&rdquo;<br><br>&ldquo;You and the investor both say &lsquo;traction,&rsquo; but you mean user stories and they mean ARR. Name the metric explicitly next time.&rdquo;<br><br>&ldquo;This co-founder resolves conflict fast when you call, not text. After tension, call within 20 minutes and start with one warm line.&rdquo;</p>
+    </div>
+
+    <div style="max-width: 700px; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+      <div style="padding: 1rem; background: var(--bg); border-radius: 4px;">
+        <p style="font-size: 0.78rem; font-weight: 600; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">Sentiment analysis</p>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">&ldquo;The call turned negative halfway through; the investor sounded skeptical.&rdquo;</p>
+      </div>
+      <div style="padding: 1rem; background: var(--bg); border-radius: 4px; border-left: 3px solid var(--accent);">
+        <p style="font-size: 0.78rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">DarcyCode</p>
+        <p style="font-size: 0.85rem; color: var(--text); line-height: 1.6;">&ldquo;The call turned after you said &lsquo;Not really&rsquo; about traction. They heard &lsquo;no traction&rsquo; although you later gave examples. Next time, lead with the examples and only then qualify &mdash; that prevents the skepticism.&rdquo;</p>
+      </div>
+    </div>
+
+    <p style="font-size: 0.95rem; color: var(--text); font-weight: 600; max-width: 700px; line-height: 1.6;">Sentiment analysis tells you how the room feels. <span style="color: var(--accent);">DarcyCode tells you where the communication broke, why it broke, and exactly how to resolve or prevent it.</span></p>
+  </div>
+</section>
+
 
 <!-- PROCESS -->
 <section class="section-border" id="process">
   <div class="container">
-    <span class="overline">Engagement Structure</span>
-    <h2>Three steps. No integration required.</h2>
-
-    <div class="process-steps">
-      <div class="process-step">
-        <div class="step-num">Step 01</div>
-        <h3>Secure Submission</h3>
-        <p>Meeting transcripts, Slack exports, email threads, or Teams conversations. 4&ndash;6 weeks of communication provides optimal depth. Encrypted transfer. NDA available.</p>
-      </div>
-      <div class="process-step">
-        <div class="step-num">Step 02</div>
-        <h3>Behavioral Analysis</h3>
-        <p>Deterministic analysis across every exchange. Patterns, dynamics, friction events, and repair sequences measured and evidenced. All findings traceable to source.</p>
-      </div>
-      <div class="process-step">
-        <div class="step-num">Step 03</div>
-        <h3>Assessment Delivery</h3>
-        <p>Full diagnostic delivered within 48 hours. Executive summary, architecture maps, friction analysis, and strategic protocols. Private. Confidential.</p>
-      </div>
-    </div>
+    <p style="font-size: 0.88rem; color: var(--text); line-height: 1.7; max-width: 700px;">
+      <strong>How it works:</strong> Submit transcripts, Slack exports, or email threads (encrypted, NDA available) &rarr; Full behavioral analysis &rarr; Full diagnostic delivered within 48 hours. No integration required.
+    </p>
   </div>
 </section>
 
 <!-- DATA HANDLING -->
 <section class="section-border">
   <div class="container">
-    <span class="overline">Data &amp; Confidentiality</span>
-    <h2>Security architecture.</h2>
+    <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; max-width: 700px;">
+      <strong style="color: var(--text);">Security:</strong> End-to-end encrypted. No raw text stored &mdash; only behavioral scores. All source material auto-deleted within 72 hours. NDA available. GDPR compliant. Your data is never used for model training.
+    </p>
+  </div>
+</section>
 
-    <div class="data-grid">
-      <div class="data-item"><strong>End-to-End Encrypted</strong>All submitted conversations encrypted in transit and at rest.</div>
-      <div class="data-item"><strong>No Raw Text Stored</strong>Only behavioral scores and patterns retained post-analysis.</div>
-      <div class="data-item"><strong>72-Hour Auto-Delete</strong>All source material permanently deleted after delivery.</div>
-      <div class="data-item"><strong>NDA Available</strong>Full non-disclosure agreement for every engagement.</div>
-      <div class="data-item"><strong>GDPR Compliant</strong>Right to delete. Data portability. Consent-based processing.</div>
-      <div class="data-item"><strong>No Model Training</strong>Your data is never used to train AI models.</div>
+<!-- TESTIMONIALS -->
+<section class="section-border" style="background: var(--bg); padding: 4rem 0;">
+  <div class="container">
+    <span class="overline">Expert Validation</span>
+    <h2 style="margin-bottom: 2.5rem;">Three fields. One verdict: the analysis is real.</h2>
+
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+
+      <div style="padding: 1.75rem; background: var(--white); border: 1px solid var(--border); border-radius: 6px;">
+        <p style="font-size: 0.88rem; color: var(--text); line-height: 1.65; margin-bottom: 1.25rem; font-style: italic;">&ldquo;Night-and-day sharper than Claude, GPT, or other tools I&rsquo;ve used. It surfaced nuanced language patterns I hadn&rsquo;t recognized before. The output was highly informative and the communication strategies would be valuable for executive communication.&rdquo;</p>
+        <div style="border-top: 1px solid var(--border-light); padding-top: 0.75rem;">
+          <div style="font-size: 0.82rem; font-weight: 600; color: var(--text);">Robert Vaillancourt</div>
+          <div style="font-size: 0.7rem; color: var(--text-tertiary);">Operating Executive &middot; AI Strategy Leader</div>
+        </div>
+      </div>
+
+      <div style="padding: 1.75rem; background: var(--white); border: 1px solid var(--border); border-radius: 6px;">
+        <p style="font-size: 0.88rem; color: var(--text); line-height: 1.65; margin-bottom: 1.25rem; font-style: italic;">&ldquo;It takes attunement to insidious and covert patterns of communication to understand the subtle forms that are so pervasive. Few professionals offer the analysis, strategy, and communication advice that Darcy does.&rdquo;</p>
+        <div style="border-top: 1px solid var(--border-light); padding-top: 0.75rem;">
+          <div style="font-size: 0.82rem; font-weight: 600; color: var(--text);">Justena Kavanagh, LCSW-R</div>
+          <div style="font-size: 0.7rem; color: var(--text-tertiary);">Clinical Social Worker &middot; 20+ Years Behavioral Analysis</div>
+        </div>
+      </div>
+
+      <div style="padding: 1.75rem; background: var(--white); border: 1px solid var(--border); border-radius: 6px;">
+        <p style="font-size: 0.88rem; color: var(--text); line-height: 1.65; margin-bottom: 1.25rem; font-style: italic;">&ldquo;Darcy caught patterns I couldn&rsquo;t name. It wasn&rsquo;t advice &mdash; it was insight. When something is that objective, forensic analysis and it flags things you felt but couldn&rsquo;t identify &mdash; it validates. I would use this on all my communications.&rdquo;</p>
+        <div style="border-top: 1px solid var(--border-light); padding-top: 0.75rem;">
+          <div style="font-size: 0.82rem; font-weight: 600; color: var(--text);">Lauren Luis</div>
+          <div style="font-size: 0.7rem; color: var(--text-tertiary);">Attorney &middot; 150+ Pages of Communication Analyzed</div>
+        </div>
+      </div>
+
     </div>
+  </div>
+</section>
+
+<!-- CROSS-CULTURAL COST -->
+<section class="section-border" style="padding: 2.5rem 0;">
+  <div class="container">
+    <span class="overline">The Cultural Layer</span>
+    <h2 style="margin-bottom: 1rem;">60% of global negotiations fail on cultural miscommunication.</h2>
+    <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; max-width: 700px; margin-bottom: 1rem;">Not language barriers. Communication style differences. Every culture has different rules for directness, silence, agreement, and trust &mdash; and none of them are written down. Companies with strong cross-cultural communication close deals <strong>34% faster</strong>. Those without lose <strong>45% of international projects</strong> to delays caused by misread signals. <span style="font-size: 0.78rem; color: var(--text-tertiary);">(Economist Intelligence Unit; Erin Meyer, <em>The Culture Map</em>; CNABKE Global Negotiations Research)</span></p>
+    <p style="font-size: 0.88rem; color: var(--text); line-height: 1.7; max-width: 700px; font-weight: 500;"><span style="color: var(--accent); font-weight: 700;">DarcyCode maps the cultural layer underneath every interaction</span> &mdash; how each person signals agreement, discomfort, and trust. It works across every culture because it reads behaviour, not words.</p>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="section-border" style="background: var(--bg-warm); padding: 2.5rem 0;">
+  <div class="container" style="max-width: 640px;">
+    <span class="overline" style="color: var(--accent);">The Builder</span>
+    <p style="font-size: 1rem; color: var(--text-on-dark); line-height: 1.7; font-weight: 500; margin-bottom: 0.75rem;"><svg style="display: inline-block; vertical-align: middle; margin-right: 0.5rem; opacity: 0.2;" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Olga Berg &mdash; 30 years of high-stakes communication analysis.</p>
+    <p style="font-size: 0.88rem; color: var(--text-on-dark-secondary); line-height: 1.7;">NASA Mission Control. U.S. State Department. War-zone coordination. The patterns Darcy maps were learned in rooms where miscommunication cost lives. DarcyCode is the system that makes that intelligence scalable, repeatable, and available to every team that can&rsquo;t afford to get communication wrong.</p>
   </div>
 </section>
 
@@ -803,7 +942,7 @@ footer {
   <span class="overline">Start Here</span>
   <h2>Get your free sample report.</h2>
   <p>Send one conversation. Receive a behavioral brief showing exactly what Darcy finds. No obligation. No integration. Confidential.</p>
-  <a href="#" class="btn btn-primary" style="padding: 0.7rem 2rem; font-size: 0.9rem;">Get Your GPS Now</a>
+  <a href="https://cal.com/olga-berg-7oqdt1" class="btn btn-primary" style="padding: 0.7rem 2rem; font-size: 0.9rem;">Get Your GPS Now</a>
   <p style="font-size: 0.72rem; color: var(--text-tertiary); margin-top: 1.5rem;">Or book a 20-minute compatibility scan to see the method live.</p>
 </section>
 
